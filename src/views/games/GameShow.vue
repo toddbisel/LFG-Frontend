@@ -1,7 +1,23 @@
 <template>
   <div class="game-show">
     <div>{{ game }}</div>
-    <button v-on:click="destroyUser(group)">Delete Group</button>
+    <div>
+      <img :src="game.image" alt="Game Image" Height="200" />
+    </div>
+    <div>
+      {{ game.title }}
+    </div>
+    <div>
+      {{ game.description }}
+    </div>
+    <div>
+      <h3>Players:</h3>
+      <div>{{ game.users }}</div>
+    </div>
+    <div>
+      <h3>Groups:</h3>
+      <div>{{ game.groups }}</div>
+    </div>
   </div>
 </template>
 

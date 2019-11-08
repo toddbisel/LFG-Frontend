@@ -2,6 +2,10 @@
   <div class="group-show">
     <div>{{ group }}</div>
     <router-link v-bind:to="`/groups/${group.id}/edit`">Edit Group</router-link>
+    <div>
+      <button v-if="group.member" v-on:click="leaveGroup()">Leave Group</button>
+      <button v-else v-on:click="joinGroup()">Join Group</button>
+    </div>
   </div>
 </template>
 
@@ -22,6 +26,24 @@ export default {
       console.log(this.group);
     });
   },
-  methods: {}
+  methods: {
+    joinGroup: function() {
+      var params = {
+        group_id: this.group.id
+      };
+
+      axios.post("api/user_groups/", params).then(response => {
+        this.group.member = true;
+        this.group.users.push(response.data);
+      });
+    },
+    leaveGroup: function() {
+      axios.delete("api/user_groups/" + this.group.id).then(response => {
+        this.group.member = false;
+        var index = this.group.users.indexOf(response.data);
+        this.group.users.splice(index, 1);
+      });
+    }
+  }
 };
 </script>

@@ -11,7 +11,7 @@
         |
         <router-link to="/games">Game Index</router-link>
         |
-        <router-link v-bind:to="`/users/${getUserInfo().userId}/edit`">My Account</router-link>
+        <router-link v-bind:to="`/users/${getUserInfo().userId}`">My Account</router-link>
         |
         <router-link v-if="isLoggedIn()" to="/logout">Logout</router-link>
       </div>

@@ -12,6 +12,7 @@ import GameShow from "../views/games/GameShow.vue";
 import GroupIndex from "../views/groups/GroupIndex.vue";
 import GroupShow from "../views/groups/GroupShow.vue";
 import GroupEdit from "../views/groups/GroupEdit.vue";
+import GroupNew from "../views/groups/GroupNew.vue";
 
 Vue.use(VueRouter);
 
@@ -70,6 +71,11 @@ const routes = [
     path: "/groups",
     name: "groups-index",
     component: GroupIndex
+  },
+  {
+    path: "/groups/new",
+    name: "groups-new",
+    component: GroupNew
   },
   {
     path: "/groups/:id/",

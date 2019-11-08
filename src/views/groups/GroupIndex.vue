@@ -5,6 +5,10 @@
       {{ group }}
       <router-link v-bind:to="`/groups/${group.id}`">Show Group</router-link>
     </div>
+    <dir>
+      Create New Group
+      <router-link :to="'/groups/new'">Create Now!</router-link>
+    </dir>
   </div>
 </template>
 
