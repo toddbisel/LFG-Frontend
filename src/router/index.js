@@ -13,6 +13,8 @@ import GroupIndex from "../views/groups/GroupIndex.vue";
 import GroupShow from "../views/groups/GroupShow.vue";
 import GroupEdit from "../views/groups/GroupEdit.vue";
 import GroupNew from "../views/groups/GroupNew.vue";
+import ConversationsIndex from "../views/conversations/Index.vue";
+import ConversationsShow from "../views/conversations/Show.vue";
 
 Vue.use(VueRouter);
 
@@ -86,6 +88,16 @@ const routes = [
     path: "/groups/:id/edit",
     name: "groups-edit",
     component: GroupEdit
+  },
+  {
+    path: "/conversations",
+    name: "conversations-index",
+    component: ConversationsIndex
+  },
+  {
+    path: "/conversations/:id",
+    name: "conversations-show",
+    component: ConversationsShow
   }
 ];
 

@@ -1,6 +1,6 @@
 <template>
   <div class="game-index">
-    Game Index
+    <div><h2>Game Index</h2></div>
     <div v-for="game in games">
       <router-link v-bind:to="`/games/${game.id}`"><img :src="game.image" alt="Game Image" Height="200" /></router-link>
     </div>

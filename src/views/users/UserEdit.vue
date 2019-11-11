@@ -26,6 +26,10 @@
           <input type="number" v-model="user.zipcode" />
         </div>
         <div>
+          Image:
+          <input type="text" v-model="user.image" />
+        </div>
+        <div>
           <input type="submit" value="Update User Info" />
         </div>
       </form>
@@ -61,7 +65,8 @@ export default {
         last_name: this.user.last_name,
         age: this.user.age,
         bio: this.user.bio,
-        zipcode: this.user.zipcode
+        zipcode: this.user.zipcode,
+        image: this.user.image
       };
 
       axios

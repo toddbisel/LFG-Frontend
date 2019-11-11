@@ -1,6 +1,11 @@
 <template>
   <div class="group-show">
+    <div><img :src="group.image" alt="Group Image" Height="200" /></div>
+    <div>Group Name: {{ group.name }}</div>
+    <div>Descriptions: {{ group.description }}</div>
+    <div>Distance from me: {{ group.distance }} miles</div>
     <div>{{ group }}</div>
+
     <router-link v-bind:to="`/groups/${group.id}/edit`">Edit Group</router-link>
     <div>
       <button v-if="group.member" v-on:click="leaveGroup()">Leave Group</button>

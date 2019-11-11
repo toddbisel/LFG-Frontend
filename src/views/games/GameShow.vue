@@ -1,15 +1,10 @@
 <template>
   <div class="game-show">
-    <div>{{ game }}</div>
     <div>
       <img :src="game.image" alt="Game Image" Height="200" />
     </div>
-    <div>
-      {{ game.title }}
-    </div>
-    <div>
-      {{ game.description }}
-    </div>
+    <div>Title: {{ game.title }}</div>
+    <div>Description {{ game.description }}</div>
     <div>
       <h3>Players:</h3>
       <div>{{ game.users }}</div>

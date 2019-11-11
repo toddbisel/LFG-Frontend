@@ -2,7 +2,7 @@
   <div id="app">
     <div id="nav">
       <div v-if="isLoggedIn()">
-        Hello {{ getUserInfo().firstName }}
+        <!-- Hello {{ getUserInfo().firstName }} -->
         <router-link to="/">Home</router-link>
         |
         <router-link to="/users">User Index</router-link>
@@ -13,7 +13,9 @@
         |
         <router-link v-bind:to="`/users/${getUserInfo().userId}`">My Account</router-link>
         |
-        <router-link v-if="isLoggedIn()" to="/logout">Logout</router-link>
+        <router-link to="/conversations">My Conversations</router-link>
+        |
+        <router-link to="/logout">Logout</router-link>
       </div>
 
       <div v-if="!isLoggedIn()">
