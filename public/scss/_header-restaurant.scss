@@ -1,0 +1,76 @@
+/*
+Restaurant header
+*/
+.navbar-restaurant{
+    padding: .5rem 0;
+}
+.pushy{
+    width: 290px;
+    background-color: #fff;
+    .pushy-content{
+        padding-top: 40px;
+        position: relative;
+    }
+    .close-button{
+        font-size: 20px;
+        position: absolute;
+        left: -10px;
+        top: -10px;
+        &:hover{
+            color: #333;
+        }
+    }
+    ul{
+        list-style: none;
+        padding: 0px;
+        margin: 0px;
+        text-align:right;
+        .pushy-submenu>button,a{
+            font-weight: 400;
+            padding:10px 20px;
+            color: #333;
+            display:block;
+            text-align:right;
+            cursor:pointer;
+            text-transform:uppercase;
+            &:hover,:focus,:active{
+                color: $primary-color;
+                outline: 0!important;
+            }
+        }
+        .btn{
+            display: inline-block;
+            margin: 5px;
+            margin-left: 20px;
+        }
+        ul{           
+            li.pushy-link a{
+                padding: 5px 30px;
+                text-transform: capitalize;
+                color:#aeaeae;
+                font-weight: 300;
+
+            }
+        }
+    }
+}
+.pushy-right {
+    -webkit-transform: translate3d(290px, 0, 0);
+    -ms-transform: translate3d(290px, 0, 0);
+    transform: translate3d(290px, 0, 0);
+}
+.navbar-restaurant{
+    position: absolute;
+    left:0;
+    top: 0;
+    width: 100%;
+    min-height: 50px;
+    background-color: transparent;
+    z-index: 10;
+}
+
+.restaurant-header{
+    h2{
+        font-family: 'Lora', serif;
+    }
+}

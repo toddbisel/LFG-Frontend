@@ -1,0 +1,52 @@
+/*
+Shop style
+*/
+.shop-item-card{
+    display: block;
+    max-width:500px;
+    margin:0 auto;
+    img{
+        margin-bottom: 0.92857143em;
+        transition: 0.3s ease;
+        -webkit-transition: 0.3s ease;
+        -moz-transition: 0.3s ease;
+        backface-visibility: hidden;
+        border-radius: 5px;
+    }
+    &:hover{
+        img {
+            transform: translate3d(0, -5px, 0);
+            -webkit-transform: translate3d(0, -5px, 0);
+        }
+    }
+ h5.h6.font600{
+        font-weight: 400!important;
+    }
+}
+
+
+.cart-products .shop-item-card{
+    position: relative;
+    .close{
+        position: absolute;
+        right: -15px;
+        top:-15px;
+        background-color: $danger-color;
+        z-index: 9;
+        width: 32px;
+        height: 32px;
+        display: block;
+        text-align: center;
+        line-height: 32px;
+        border-radius:50%;
+        font-size: 12px;
+        text-shadow:none;
+        color: #fff;
+    }
+}
+.cart-table{
+    thead>tr>th,tbody>tr>td{
+        text-align: right;
+        vertical-align: middle;
+    }
+}

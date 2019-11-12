@@ -1,0 +1,118 @@
+/*
+Dropdown-style
+*/
+.dropdown-menu{
+    margin:0px 0px;
+    border-radius: 0px;
+    -webkit-border-radius: 0px;
+    box-shadow: 0px 0px 40px rgba(0,0,0,0.1);
+
+}
+/**mega menu**/
+.dropdown-submenu {
+    position: relative;
+}
+
+.dropdown-submenu>.dropdown-menu {
+    top: 0;
+    left: 100%;
+    margin-top: -2px;
+    margin-left: -1px;
+    -webkit-border-radius: 0 6px 6px 6px;
+    -moz-border-radius: 0 6px 6px;
+    border-radius: 0 6px 6px 6px;
+}
+
+.dropdown-submenu:hover>.dropdown-menu {
+    display: block;
+}
+
+.dropdown-submenu>a:after {
+    display: block;
+    content: " ";
+    float: right;
+    width: 0;
+    height: 0;
+    border-color: transparent;
+    border-style: solid;
+    border-width: 5px 0 5px 5px;
+    border-left-color: #ddd;
+    margin-top: 5px;
+    margin-right: -10px;
+}
+
+.dropdown-submenu:hover>a:after {
+    border-left-color: $primary-color;
+}
+
+.dropdown-submenu.pull-left {
+    float: none;
+}
+
+.dropdown-submenu.pull-left>.dropdown-menu {
+    left: -100%;
+    margin-left: 0;
+    -webkit-border-radius: 6px 0 6px 6px;
+    -moz-border-radius: 6px 0 6px 6px;
+    border-radius: 6px 0 6px 6px;
+}
+.dropdown-menu{
+    min-width: 12rem;
+    background: #fff;
+    .dropdown-item{
+        font-size: .85rem;
+        font-weight: 400;
+        color: #86939e;
+        text-transform: capitalize;
+        &:focus{
+            background-color: #f8f9fa;
+        }
+        .badge{
+            margin-left: 4px;
+            opacity:0.4;
+        }
+    }
+}
+
+.dropdown.dropdown-mega{
+    position: static;
+}
+/**dropdown-login**/
+.dropdown-menu.dropdown-form{   
+    min-width:290px;
+    label{
+        font-size: 11px;
+        margin-bottom: 0px;
+        font-weight: 500;
+    }
+    .card.card-account{
+        margin-top: 0px;
+        padding: 0px;
+        .card-body{
+            padding: 15px 10px;
+            .btn{
+                top: 0px;
+            }
+        }
+    }
+}
+@media(min-width:992px){
+    .dropdown-menu{
+        padding: 0px;
+        border: 0px;
+        border-top: 2px solid $primary-color;
+        .dropdown-item{
+            padding: .5rem 1rem;
+        }
+    }
+    .dropdown-mega-menu{
+        position: absolute;
+        top: 100%;
+        left:0;
+        width: 100%;
+        padding: 30px 0px;
+        background-color: #fff;
+        border-radius: 0px;
+    }
+
+}

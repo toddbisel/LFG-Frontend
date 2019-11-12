@@ -1,0 +1,24 @@
+/*
+Typed text
+*/
+.typed{
+    display: inline-block;
+    font-size: 3.5rem;
+    font-weight:300;
+    height:4rem;
+    margin-bottom: 40px;
+    color: #fff;
+    position: relative;
+    padding-right: 15px;
+    &:after{
+        content: "_";
+        position: absolute;
+        right:0;
+        top:0;
+        font-size: 1.2em;
+        color: #fff;
+        animation: blink .07s infinite;
+        -webkit-animation: blink .07s infinite;
+    }
+}
+

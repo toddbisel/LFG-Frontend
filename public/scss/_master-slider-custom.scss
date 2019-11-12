@@ -1,0 +1,26 @@
+/*
+Customization css file for master slider
+*/
+.master-slider-home{
+    overflow-x:hidden;
+    .msp-cn-137-12,.msp-cn-137-18,.msp-cn-137-5{
+        font-family: $base-font;
+    }
+}
+.ms-layer.slider-main-heading{
+    color: #fff;
+    font-size: 1.5rem;
+}
+.mas-layer.ms-btn{
+    color: #333;
+    background-color: #fff;
+}
+.msp-cn-121-16,.msp-cn-121-18,.msp-cn-121-7,.msp-cn-121-6,.msp-cn-121-11,.msp-cn-121-8,.msp-cn-121-14,.msp-cn-121-12{
+ font-family: $base-font!important;   
+}
+.msp-cn-121-16,.msp-cn-121-7,.msp-cn-121-14{
+    color: $primary-color;
+}
+.msp-cn-121-8{
+    color: #000;
+}

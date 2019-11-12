@@ -1,0 +1,22 @@
+/*
+Tables
+*/
+
+.table.table-on-dark{
+    thead>tr>th{
+        color: #fff;
+        border-bottom:0px;
+    }
+        tbody>tr>td{
+        color: #aeaeae;
+    }
+    &.table td, &.table th{
+        border-color:#999!important;
+    }
+}
+.page-item.active .page-link {
+    z-index: 2;
+    color: #fff;
+    background-color: $primary-color;
+    border-color: $primary-color;
+}

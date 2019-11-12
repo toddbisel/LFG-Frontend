@@ -1,0 +1,210 @@
+/*
+Header styles
+*/
+
+.navbar-expand-lg.navbar .nav-link{
+    padding-left: .9rem;
+    padding-right: .9rem;
+}
+.navbar.navbar-light.bg-faded{
+    background-color: #fff;
+}
+.navbar .btn{
+    position: relative;
+    top: .9rem;
+}
+.nav-link{
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-top: 2px solid transparent;
+}
+.navbar-light .navbar-nav .nav-link {
+    color:#666;
+   
+}
+.navbar-light .navbar-nav .active>.nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show>.nav-link{
+color: $primary-color!important;
+border-top-color: $primary-color;
+}
+.navbar{
+    position: relative;
+}
+.navbar-right-col{
+    position: absolute;
+    right: 1rem;
+    top: 1.2rem;
+    li:first-child{
+        border-left: 1px solid #eee;
+        padding-left: 15px;
+    }
+    .list-inline{
+        padding: 0;
+        margin: 0px;
+    }
+    ul>li>a{
+        display: block;
+        color: #999;
+        width: 32px;
+        height: 32px;
+        line-height: 32px;
+        background-color: #f5f5f5;
+        text-align: center;
+        border-radius: 50%;
+        position: relative;
+        .badge{
+            position: absolute;
+            right: -3px;
+            top: -3px;
+        }
+    }
+}
+.navbar-collapse{
+    padding-right: 110px;
+}
+.single-header{
+    .navbar-collapse{
+        padding-right: 0px;
+    }
+}
+/**search bar**/
+.search-dropdown-menu.dropdown-menu{
+    padding: 0px;
+    border: 0px;
+    position:absolute;
+    right:0;
+    left:auto;
+    background-color:transparent;
+    top:100%;
+    margin-top:20px;
+    >form{
+        position: relative;
+        .btn-nav-search{
+            position: absolute;
+            right: 10px;
+            top: 7px;
+            background-color: transparent;
+            padding: 0px;
+            border: 0px;
+            color: #999;
+        }
+        .form-control{
+            border-radius: 5px;
+            font-size:13px;
+            height:40px;
+            width: 200px;
+            background-color:#fff;
+            border-radius: 10px;
+            border:0px;
+        }
+    }
+}
+.dropdown-menu.search-dropdown-menu.show{
+    display: block;
+}
+.dropdown.dropdown-search .dropdown-toggle:after{
+    display: none;
+}
+/**top-bar**/
+.top-bar{
+    background-color: rgba($primary-color,.05);
+    span{
+        display: inline-block;
+        padding-left: 10px;
+        color: #888;
+        font-size: 12px;
+    }
+}
+.feature-split-nav .list-inline-item .nav-link{
+    color: #999;
+}
+@media(min-width:992px){
+    .navbar{
+        padding-top: 0px;
+        padding-bottom: 0px;
+    }
+    .navbar-expand-lg .navbar-nav>li{
+        padding: 0px 1rem;
+    }
+    .navbar-expand-lg .navbar-nav .nav-link{
+          padding-left: 0;
+        padding-right: 0;
+    }
+    .nav-link{
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;      
+    }
+    /**transparent header **/
+    .navbar.navbar-transparent.static-top{
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        z-index: 999;
+    }
+    .navbar-brand{
+        padding-top: 0px;
+    }
+    .navbar.navbar-transparent{
+        .navbar-nav .nav-link{
+            color: rgba(#fff,.7);
+            &:hover{
+                color: #fff;
+            }      
+        }
+        .active a.nav-link{
+            color: #fff;
+        }
+        .navbar-brand img{
+            position: absolute;
+            top: 1.7rem;
+        }
+        .logo-hidden-desktop{
+            opacity: 0;
+            visibility: hidden;
+        }
+        &.navbar-sticky{
+            position: absolute;
+            left:0;
+            top:0;
+            width: 100%;
+            z-index: 999;
+            &.sticky-active{
+                position: fixed;
+                background-color: #fff;
+                box-shadow: 0px 3px 20px rgba(0,0,0,0.1);
+                left:0;
+                top:0;
+                width: 100%;
+                z-index: 999;
+                    animation: fadeInDown 0.3s ease-out forwards;
+                .navbar-nav .nav-link{
+                    color: rgba(0,0,0,0.7);
+                }
+                .navbar-brand img.logo-default{
+                    opacity: 0;
+                    visibility: hidden;
+                }
+                .navbar-brand img.logo-scroll{
+                 opacity: 1;
+                 visibility: visible;
+                }
+            }
+        }
+        &.transparent-dark{
+            .navbar-nav .nav-link{
+                color: rgba(0,0,0,0.6);
+            }
+        }
+    }
+}
+@media(max-width:991px){
+    .navbar.navbar-transparent .logo-visible-desktop{
+        display: none;
+    }
+    .navbar.navbar-transparent .logo-hidden-desktop{
+        opacity: 1;
+        visibility: visible;
+    }
+}

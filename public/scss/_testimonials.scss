@@ -1,0 +1,53 @@
+/*
+Testimonials
+*/
+.card.testimonial-card{
+    position: relative;
+    img.img-fluid{
+        width: 50px;
+    }
+    &:before{
+        font-family: "FontAwesome";
+            content: "\f10d";
+            font-size: 60px;
+            position: absolute;
+            right:20px;
+            bottom:20px;
+            opacity: .1;
+    }
+}
+.owl-theme .owl-dots .owl-dot span{
+    background-color: transparent;
+    border: 1px solid #ddd;
+    margin:0px;
+    margin-right: 3px;
+    transition: all .5s;
+    -webkit-transition: all .5s;
+}
+.owl-theme .owl-dots .owl-dot.active span{
+    background-color: $info-color;
+}
+.owl-theme .owl-dots .owl-dot span:hover{
+    background-color: $info-color;
+}
+
+.testimonial-full{
+    text-align:center;
+    .img-fluid{
+        max-width: 50px;
+        margin: 0 auto;
+    }
+    .testimonial-author{
+        display:inline-block;
+        min-width:220px;
+        padding-left:50px;
+        padding-bottom: 20px;
+    }
+}
+.owl-clients{
+    .img-fluid{
+        max-width: 120px;
+        margin: 0 auto;
+        opacity:0.5;
+    }
+}

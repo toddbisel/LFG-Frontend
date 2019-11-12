@@ -1,0 +1,74 @@
+/*
+Pricing-tables
+*/
+
+.pricing-card-simple{
+    text-align:center;
+    padding:25px 20px;
+    &.pricing-primary{
+        background-color: rgba($primary-color,.05);
+    }
+     &.pricing-danger{
+        background-color: rgba($danger-color,.05);
+    }
+     &.pricing-success{
+        background-color: rgba($success-color,.05);
+    }
+    h5{
+        font-weight: 400;
+        margin-bottom: 0px;
+    }
+    .price-tag{
+        font-size:4rem;
+        padding:20px 0;
+        font-weight:300;
+        sup{
+            vertical-align: top;
+            top: 20px;
+        }
+        sup,sub{
+            font-size: .6rem;
+        }
+        sub{
+            bottom: 20px;
+            vertical-align: bottom;
+            right: 20px;
+        }
+    }
+}
+.pricing-card-modern{
+    text-align:center;
+    padding:25px 20px;
+    .list-unstyled{
+        li{
+            padding: 8px 0;
+        }
+    }
+    &.pricing-primary{
+        background-color: rgba($primary-color,.05);
+    }
+     &.pricing-danger{
+        background-color: rgba($danger-color,.05);
+    }
+     &.pricing-success{
+        background-color: rgba($success-color,.05);
+    }
+    .price-tag{
+          font-size:4rem;
+        padding:15px 0;
+        padding-bottom: 5px;
+        font-weight:300;
+          sup{
+            vertical-align: top;
+            top: 20px;
+        }
+        sup,sub{
+            font-size: .6rem;
+        }
+        sub{
+            bottom: 20px;
+            vertical-align: bottom;
+            right: 20px;
+        }
+    } 
+}

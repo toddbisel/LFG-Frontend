@@ -1,0 +1,53 @@
+/*
+Modals
+*/
+.modal-title{
+    font-weight: 600;
+}
+.magnific-popup{
+    background-color: #fff;
+    border-radius: 5px;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px 15px;
+    position: relative;
+}
+.alert{
+    border-radius: 0px;
+    border: 0px;
+    &.alert-danger{
+        background-color: $danger-color;
+        color: rgba(#fff,.8);
+        a{
+            color: #fff;        
+        }
+    }
+     &.alert-primary{
+        background-color: $primary-color;
+        color: rgba(#fff,.8);
+        a{
+            color: #fff;        
+        }
+    }
+     &.alert-warning{
+        background-color: $warning-color;
+        color: rgba(#fff,.8);
+        a{
+            color: #fff;        
+        }
+    }
+     &.alert-success{
+        background-color: $success-color;
+        color: rgba(#fff,.8);
+        a{
+            color: #fff;        
+        }
+    }
+      &.alert-info{
+        background-color: $info-color;
+        color: rgba(#000,.8);
+        a{
+            color: #000;        
+        }
+    }
+}

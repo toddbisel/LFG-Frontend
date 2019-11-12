@@ -1,0 +1,86 @@
+/*
+Header Fullscreen
+*/
+.header-fullscreen{
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: 999;
+    padding:20px 0;
+    width:100%;
+    a.openNav{
+        color: #333;
+        display: block;
+        width: 44px;
+        height: 44px;
+        line-height: 44px;
+        border-radius: 50%;
+        position: relative;
+        background-color: #fff;
+        text-align: center;
+        float:right;
+    }
+}
+.overlay {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    background-color: rgba(255,255,255,.99);
+    background-color:rgba(255,255,255,.99);
+    overflow-x: hidden; 
+    transition: 0.5s;
+    overflow-y:scroll;
+    z-index: 9999;
+}
+.overlay.fullscreen-visible{
+    width: 0;
+}
+.overlay-content {
+    position: relative;
+    top: 25%;
+    width: 100%;
+    text-align: center; 
+}
+.overlay a {
+    padding: 8px;
+    text-decoration: none;
+    font-size: 14px;
+    text-transform: uppercase;
+    color: #999;
+    display: block;
+    font-weight: 500;
+    transition: 0.3s;
+}
+.overlay a:hover, .overlay a:focus {
+    color: #000;
+}
+.overlay .closebtn {
+    position: absolute;
+    top: 0px;
+    right: 50%;
+    font-size: 30px;
+    margin-right: -10px;
+}
+.fullMenu-social{
+    display: block;
+    width: 100%;
+    a{
+        display: inline-block;
+        font-size: 20px;
+        margin:10px 0px;
+        >i{
+            font-size: 20px;
+        }
+    }
+}
+@media screen and (max-height: 450px) {
+    .overlay a {font-size: 20px}
+    .overlay .closebtn {
+        font-size: 40px;
+        top: 15px;
+        right: 35px;
+    }
+}

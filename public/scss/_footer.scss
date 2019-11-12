@@ -1,0 +1,107 @@
+/*
+Footer style
+*/
+.footer{
+    padding: 50px 0;
+    padding-bottom: 20px;
+    background-color: rgba($primary-color,.02);
+    border-top:1px solid #eee;
+    h4{
+        font-weight: 700;
+        margin-bottom: 1rem;
+        font-size: .95rem;
+    }
+    .col-md-6{
+        margin-bottom: 30px;
+    }
+    .btn.btn-underline{
+        color: #777;
+        &:hover,&:focus{
+            border-bottom-color: $primary-color;
+            color: #aeaeae;
+        }
+    }
+    .form-group{
+        position: relative;
+        .btn-newsletter{
+            position:absolute;
+            right: 15px;
+            padding: 0px;
+            border:0px;
+            background-color: transparent;
+            bottom:11px;
+        }
+    }
+    .form-control{
+        font-size: 13px;
+        border:0px;
+        border-radius: 0px;
+        border:0px;
+        background-color: #fff;
+        height:45px;
+        line-height:45px;
+        border:1px solid #ddd;
+        border-radius:5px;
+        &:focus{
+            border-color:$primary-color;
+        }
+    }
+    &.bg-dark{
+        background-color: #212121;
+        color:#aeaeae;
+        h4{
+            color: #fff;
+        }
+        .btn-underline{
+            color: #aeaeae;
+            border-bottom-color:#aeaeae;
+            &:hover{
+                border-bottom-color: #fff;
+                color: #fff;
+            }
+        }
+    }
+}
+.footer-gallery{
+    a{
+        display: block;
+        float: left;
+        width: 80px;
+        border-radius: 5px;
+        margin:3px;
+        .img-fluid{
+            border-radius: 5px;
+        }
+    }
+}
+/****sticky-footer**/
+/**sticky footer*/
+html.footer-sticky, .footer-sticky body {
+    height: 100%; }
+
+@media (min-width: 992px) {
+    .footer-sticky .page-footer-sticky {
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: flex;
+        -webkit-flex-direction: column;
+        -moz-flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        min-height: 100vh;
+        min-height: 100%; }
+    .footer-sticky .page-footer-sticky .footer-sticky-wrap {
+        -webkit-flex: 1 0 auto;
+        -moz-flex: 1 0 auto;
+        -ms-flex: 1 0 auto;
+        flex: 1 0 auto;
+        min-height: 0;
+        height: auto;
+        position: relative;
+        right: 0;
+        min-height: 100%; }
+    .footer-sticky .page-footer-sticky .footer-sticky-wrap .footer-sticky-inner {
+        position: relative;
+        width: 100%; }
+}

@@ -1,0 +1,17 @@
+/*
+Features with image style
+*/
+
+.feature-col{  
+    img{
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+         border-radius: 5px;
+    box-shadow: 0px 0px 20px rgba(0,0,0,0.1);
+    }
+    &.saas-features{
+        img{
+            box-shadow: none;
+        }
+    }
+}

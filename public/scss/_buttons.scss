@@ -1,0 +1,182 @@
+/*
+Buttons
+*/
+.btn{
+    font-size: .8rem;
+    font-weight: 600;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    transition:all .3s ease-in-out;
+    -webkit-transition:all .3s ease-in-out;
+    cursor:pointer;
+    padding:.5rem 1rem;
+    text-transform:capitalize;
+    &.btn-sm{
+        padding: .2rem .5rem;
+        font-weight: 400;
+        font-size: .7rem;
+    }
+    &.btn-lg{
+        padding: .6rem 1.8rem;
+        font-weight: 600;
+    }
+    &.btn-xl{
+        padding: 1rem 2.3rem;
+        font-weight:600;
+    }
+    &:hover,&:focus,&:active{
+        outline: 0!important;
+        box-shadow: none!important;
+    }
+
+    &.btn-rounded{
+        border-radius: 100px;
+    }
+    &.btn-underline{
+        padding: 5px 0;
+        border-bottom: 1px solid #eee;
+        &:hover,&:focus{
+            border-bottom-color: $primary-color;
+            color: #999;
+        }
+    }
+    &.btn-block{
+        display: block;
+        width: 100%;
+    }
+    &:hover{
+        transform: translate3d(0, -2px, 0);
+        -webkit-transform: translate3d(0, -2px, 0);
+    }
+}
+.video-play-btn{
+    width: 90px;
+    height: 90px;
+    background-color: $primary-color;
+    color: #fff;
+    font-size: 20px;
+    line-height: 90px;
+    display: block;
+    border-radius: 50%;
+    text-align:center;
+    transition:all .3s ease-in-out;
+    -webkit-transition:all .3s ease-in-out;
+     box-shadow: 0px 0px 20px rgba(0,0,0,0.1);
+    &:hover{
+        transform: translate3d(0, -2px, 0);
+        -webkit-transform: translate3d(0, -2px, 0);       
+        color: #fff;
+    }
+}
+.video-cover{
+    position: relative;
+    .video-play-btn{
+        position: absolute;
+        left: 50%;
+        top:50%;
+            transform: translate3d(-50%, -50%, 0);
+    -webkit-transform: translate3d(-50%, -50%, 0);
+    }
+}
+.btn-primary.focus, .btn-primary:focus{
+    box-shadow: none;
+}
+.btn-warning{
+    background-color: $warning-color;
+}
+.btn-danger,.btn-primary,.btn-success,.btn-dark,.btn-info{
+    color: #fff!important;
+}
+/*outline button**/
+.btn-outline-primary{
+    background-color: transparent;
+    border-color: $primary-color;
+    color: $primary-color;
+}
+.btn-primary{
+    background-color: $primary-color;
+    color: #fff;
+    border-color: $primary-color;
+}
+.btn-outline-danger{
+    background-color: transparent;
+    border-color: $danger-color;
+    color: $danger-color;
+    &:hover,&:focus,&:active{
+        background-color: $danger-color;
+        color: #fff;
+        border-color: $danger-color;
+    }
+}
+.btn-outline-success{
+    background-color: transparent;
+    border-color: $success-color;
+    color: $success-color;
+    &:hover,&:focus,&:active{
+        background-color: $success-color;
+        color: #fff;
+        border-color: $success-color;
+    }
+}
+.btn-outline-warning{
+    background-color: transparent;
+    border-color: $warning-color;
+    color: $warning-color;
+    &:hover,&:focus,&:active{
+        background-color: $warning-color;
+        color: #fff;
+        border-color: $warning-color;
+    }
+}
+.btn-outline-light{
+    color: #aeaeae;
+    &:hover{
+        color:#aeaeae;
+    }
+}
+.icon-round-40{
+    width: 40px!important;
+    height: 40px!important;
+    text-align: center!important;
+    border-radius: 50%!important;
+    line-height: 40px!important;
+    display: inline-block!important;
+    font-size: 20px!important;
+}
+.icon-round-60{
+    width: 60px!important;
+    height: 60px!important;
+    text-align: center!important;
+    border-radius: 50%!important;
+    line-height: 60px!important;
+    display: inline-block!important;
+    font-size: 30px!important;
+}
+
+/*social button*/
+.btn.btn-social{
+    padding: 0px 20px;
+    height: 40px;
+    line-height: 40px;
+    color:#fff;
+    position:relative;
+    padding-left:50px;
+    i{
+        position: absolute;
+        left:0;
+        top:0;
+        width:40px;
+        height:40px;
+        background-color: rgba(#000,.1);
+        color:#fff;
+        font-size: 15px;
+        line-height: 40px;
+        text-align:center;
+    }
+    &.facebook{
+        background-color: #3b5998;
+    }
+    &.twitter{
+        background-color: #00aced;
+    }
+}
