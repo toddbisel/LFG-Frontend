@@ -21,6 +21,11 @@
         Image:
         <input type="text" v-model="group.image" />
       </div>
+      <div id="group-games" v-for="game in games">
+        <input type="checkbox" :id="game.id" :value="game.id" v-model="checkedGames" />
+        <label :for="game.id">{{ game.title }}</label>
+      </div>
+      {{ checkedGames }}
       <div>
         <input type="submit" value="Update Group Info" />
       </div>
@@ -39,13 +44,20 @@ export default {
   data: function() {
     return {
       errors: [],
-      group: {}
+      group: {},
+      checkedGames: [],
+      games: []
     };
   },
   created: function() {
     axios.get("/api/groups/" + this.$route.params.id).then(response => {
       this.group = response.data;
       console.log(this.group);
+      this.checkedGames = this.group.games.map(game => game.id);
+    });
+    axios.get("/api/games/").then(response => {
+      this.games = response.data;
+      console.log(this.games);
     });
   },
   methods: {
@@ -54,7 +66,8 @@ export default {
         name: this.group.name,
         description: this.group.description,
         zipcode: this.group.zipcode,
-        image: this.group.image
+        image: this.group.image,
+        game_ids: this.checkedGames
       };
 
       axios

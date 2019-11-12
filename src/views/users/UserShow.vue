@@ -5,6 +5,13 @@
         Create Conversation
       </button>
       <div><h2>User Info</h2></div>
+
+      <div v-if="$parent.getUserInfo().userId == user.id">
+        <router-link v-bind:to="`/users/${user.id}/edit`">
+          <button><h2>Edit My Account</h2></button>
+        </router-link>
+      </div>
+
       <div><img :src="user.image" alt="User Image" Height="500" /></div>
       <div>Name: {{ user.first_name }} {{ user.last_name }}</div>
       <div>Age: {{ user.age }}</div>
@@ -33,19 +40,19 @@
 
     <div>
       <div>
-        <h2>{{ user.first_name }}'s Games</h2>
+        <div v-if="$parent.getUserInfo().userId == user.id">
+          <h2>My Games</h2>
+        </div>
+        <div v-else>{{ user.first_name }}'s Games</div>
+
         <div v-for="game in user.games">
-          <router-link v-bind:to="`/games/${games.id}`">
+          <router-link v-bind:to="`/games/${game.id}`">
             <img :src="game.image" alt="Game Image" Height="150" />
           </router-link>
           <div>Name: {{ game.title }}</div>
           <br />
         </div>
       </div>
-    </div>
-    {{ user.games }}
-    <div v-if="$parent.getUserInfo().userId == user.id">
-      <router-link v-bind:to="`/users/${user.id}/edit`">Edit My Account</router-link>
     </div>
   </div>
 </template>

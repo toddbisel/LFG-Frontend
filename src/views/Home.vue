@@ -3,13 +3,13 @@
     <div>
       <div v-if="isLoggedIn()">
         Are you searching for...
-        <router-link to="/users" tag="button">a player?</router-link>
+        <router-link to="/users"><button>a player?</button></router-link>
         or
-        <router-link to="/groups" tag="button">a group?</router-link>
+        <router-link to="/groups"><button>a group?</button></router-link>
       </div>
       <div v-else>
         Every Adventurer needs a party!
-        <router-link to="/signup">Sign Up</router-link>
+        <router-link to="/signup"><button>Sign Up</button></router-link>
       </div>
     </div>
   </div>

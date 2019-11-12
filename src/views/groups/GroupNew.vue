@@ -26,6 +26,11 @@
           <label>Image:</label>
           <input type="text" class="form-control" v-model="image" />
         </div>
+        <div id="group-games" v-for="game in games">
+          <input type="checkbox" :id="game.id" :value="game.id" v-model="checkedGames" />
+          <label :for="game.id">{{ game.title }}</label>
+        </div>
+        {{ checkedGames }}
 
         <input type="submit" class="btn btn-primary" value="Submit" />
       </form>
@@ -43,8 +48,16 @@ export default {
       description: "",
       zipcode: "",
       image: "",
-      errors: []
+      errors: [],
+      checkedGames: [],
+      games: []
     };
+  },
+  created: function() {
+    axios.get("/api/games/").then(response => {
+      this.games = response.data;
+      console.log(this.games);
+    });
   },
   methods: {
     submit: function() {
@@ -52,7 +65,8 @@ export default {
         name: this.name,
         description: this.description,
         image: this.image,
-        zipcode: this.zipcode
+        zipcode: this.zipcode,
+        game_ids: this.checkedGames
       };
       axios
         .post("/api/groups", params)
