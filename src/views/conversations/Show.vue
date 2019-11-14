@@ -1,27 +1,41 @@
 <template>
   <div class="conversations-show">
-    <h2>New Message</h2>
-    <form v-on:submit.prevent="createMessage()">
-      <div>
-        <input type="text" v-model="newMessageBody" />
-        <input type="submit" value="Create Message" />
+    <div class="container pt90 pb60">
+      <div class="leave-comment">
+        <h4 class="mb30 font600 h5">New Message</h4>
+        <form class="comment-form" v-on:submit.prevent="createMessage()">
+          <div class="form-group">
+            <textarea v-model="newMessageBody" placeholder="write message" rows="5" class="form-control"></textarea>
+          </div>
+          <div class=" text-right">
+            <input type="submit" value="Send" class="btn btn-dark btn-xl" />
+          </div>
+        </form>
       </div>
-    </form>
-    <div>
-      <h2>Messages</h2>
-      <div v-for="message in conversation.messages">
-        <p>{{ message.first_name }} : {{ message.created_at }}</p>
-        <p>{{ message.body }}</p>
+      <div class="comments">
+        <h4 class="font600 h5 mb40">Messages</h4>
+        <div class="media" v-for="message in conversation.messages">
+          <div class="float-left mr-3">
+            <img class=" rounded-circle" :src="message.image" width="70" alt="..." />
+          </div>
+          <div class="media-body">
+            <h4 class="media-heading">{{ message.first_name }}</h4>
+            <span>sent {{ relativeDate(message.created_at) }}</span>
+            <p>
+              {{ message.body }}
+            </p>
+            <div class="space-40"></div>
+          </div>
+        </div>
       </div>
     </div>
-
-    <router-link to="/conversations">return to all messages</router-link>
   </div>
 </template>
 
 <script>
 import axios from "axios";
 import ActionCable from "actioncable";
+import moment from "moment";
 
 export default {
   data: function() {
@@ -48,7 +62,7 @@ export default {
       received: data => {
         // Called when there's incoming data on the websocket for this channel
         console.log("Data from MessagesChannel:", data);
-        this.conversation.messages.push(data); // update the messages in real time
+        this.conversation.messages.unshift(data); // update the messages in real time
       }
     });
   },
@@ -62,6 +76,9 @@ export default {
         this.newMessageBody = "";
         // this.conversation.messages.push(response.data);
       });
+    },
+    relativeDate: function(date) {
+      return moment(date).fromNow();
     }
   }
 };

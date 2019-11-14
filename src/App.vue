@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <nav class="navbar navbar-expand-lg navbar-light navbar-transparent navbar-sticky">
-      <router-link class="navbar-brand" to="/"><img src="/images/logo.png" alt="" /></router-link>
+      <router-link class="navbar-brand" to="/"><img src="/images/logo.png" alt="" height="35" /></router-link>
       <button
         class="navbar-toggler"
         type="button"
@@ -15,13 +15,13 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav  ml-auto">
-          <li class="nav-item">
+          <li class="nav-item" v-if="isLoggedIn()">
             <router-link class="nav-link" to="/users">Users</router-link>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" v-if="isLoggedIn()">
             <router-link class="nav-link" to="/groups">Groups</router-link>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" v-if="isLoggedIn()">
             <router-link class="nav-link" to="/games">Games</router-link>
           </li>
           <li class="nav-item" v-if="isLoggedIn()">
@@ -31,13 +31,13 @@
             <router-link class="nav-link" to="/conversations">Messages</router-link>
           </li>
           <li class="nav-item" v-if="isLoggedIn()">
-            <router-link class="nav-link" to="/logout">Logout</router-link>
+            <router-link class=" btn btn-primary btn-lg" to="/logout">Logout</router-link>
           </li>
           <li class="nav-item" v-if="!isLoggedIn()">
             <router-link class="nav-link" to="/login">Login</router-link>
           </li>
           <li class="nav-item" v-if="!isLoggedIn()">
-            <router-link target="_blank" to="/signup" class=" btn btn-primary btn-lg">
+            <router-link to="/signup" class=" btn btn-primary btn-lg">
               Signup
             </router-link>
           </li>
@@ -45,18 +45,29 @@
       </div>
     </nav>
 
-    <div class="dzsparallaxer auto-init height-is-based-on-content " data-options='{   direction: "reverse"}'>
+    <!-- <div class="dzsparallaxer auto-init height-is-based-on-content " data-options='{   direction: "reverse"}'>
       <div
         class="divimage dzsparallaxer--target "
-        style="width: 101%; height: 130%; background-image: url(/images/bg-6.jpg)"
+        style="width: 101%; height: 130%; background-image: url(/images/test2.jpg)"
       ></div>
 
       <div class="container pt100 pb70">
         <div class="row pb50">
-          <div class="col-md-8 ml-auto mr-auto wow bounceIn" data-wow-delay=".2s">
-            <h3 class="h1 text-center font300  pt100 text-white">Meet the super heros</h3>
-          </div>
+          <div class="col-md-8 ml-auto mr-auto wow bounceIn" data-wow-delay=".2s"></div>
         </div>
+      </div>
+    </div> -->
+    <div
+      class="dzsparallaxer auto-init height-is-based-on-content mode-scroll dzsprx-readyall"
+      data-options='{   direction: "reverse"}'
+    >
+      <div
+        class="divimage dzsparallaxer--target "
+        style='width: 101%; height: 180%; background-image: url("/images/drizzt.jpg"); transform: translate3d(0px, -42.6641px, 0px);'
+      ></div>
+
+      <div class="container pt100 pb70">
+        <div class="row pb50"></div>
       </div>
     </div>
     <!--parallax-->
@@ -68,10 +79,9 @@
           <div class="col-md-6 col-lg-3">
             <h4>Versa</h4>
             <p>
-              If you use this site regularly and would like to help keep the site on the Internet, please consider
-              donating a small sum to help pay for the hosting and bandwidth bill.
+              Thank you for using Looking For Group for all your adventuring needs. May the odds be ever in your favor
+              and may the god of death know today is not your day.
             </p>
-            <a href="#" class="btn btn-underline">Hire Us</a>
           </div>
           <!--/.column-->
           <div class="col-md-6 col-lg-3">
@@ -134,6 +144,10 @@
 .navbar-collapse {
   padding-right: 0px;
 }
+.dzsparallaxer.height-is-based-on-content {
+  height: 400px;
+  padding: 0 !important;
+}
 </style>
 
 <script>
@@ -149,6 +163,9 @@ export default {
         return false;
       }
     },
+    getBanner: function(data) {
+      return data;
+    },
     getUserInfo: function() {
       return {
         firstName: localStorage.getItem("first_name"),
@@ -158,26 +175,3 @@ export default {
   }
 };
 </script>
-
-<style>
-#app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>

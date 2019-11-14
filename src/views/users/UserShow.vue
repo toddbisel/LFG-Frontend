@@ -1,21 +1,5 @@
 <template>
   <div class="user-show">
-    <div class="dzsparallaxer auto-init height-is-based-on-content " data-options='{   direction: "reverse"}'>
-      <div
-        class="divimage dzsparallaxer--target "
-        style="width: 101%; height: 130%; background-image: url(/images/bg-6.jpg)"
-      ></div>
-
-      <div class="container pt100 pb70">
-        <div class="row pb50">
-          <div class="col-md-8 ml-auto mr-auto wow bounceIn" data-wow-delay=".2s">
-            <h3 class="h1 text-center font300  pt100 text-white">Meet the super heros</h3>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!--parallax-->
-
     <div class="container pt90 pb60">
       <div class="feature-col mb30">
         <div class="row align-items-center">
@@ -29,10 +13,12 @@
               {{ user.bio }}
             </p>
             <p v-if="$parent.getUserInfo().userId == user.id">
-              <button class="btn btn-primary mb5">
-                <i class="fa fa-edit mr-1"></i>
-                Edit Account
-              </button>
+              <router-link class="nav-link" v-bind:to="`/users/${user.id}/edit`">
+                <button class="btn btn-primary mb5">
+                  <i class="fa fa-edit mr-1"></i>
+                  Edit Account
+                </button>
+              </router-link>
             </p>
             <p v-else>
               <button class="btn btn-primary mb5" v-on:click="createConversation()">
@@ -59,9 +45,9 @@
       </div>
     </div>
 
-    <div v-if="user.groups.length > 0" class="container pb60">
+    <div class="container pb60">
       <hr class="pt60" />
-      <div class="center-title text-center mb50">
+      <div class="center-title text-center mb50" v-if="user.groups.length">
         <h4 v-if="$parent.getUserInfo().userId == user.id">My Groups</h4>
         <h4 v-else class="">{{ user.first_name }}'s Groups</h4>
       </div>
@@ -70,7 +56,6 @@
           <router-link v-bind:to="`/groups/${group.id}`">
             <img :src="group.image" alt="" class="img-fluid img-thumbnail mb20" width="150" />
             <h4>{{ group.name }}</h4>
-            <span class="font600 text-muted">{{ group.description }}</span>
           </router-link>
         </div>
         <!--/col-->

@@ -1,35 +1,59 @@
 <template>
   <div class="game-show">
-    <div>
-      <img :src="game.image" alt="Game Image" Height="200" />
-    </div>
-    <div>Title: {{ game.title }}</div>
-    <div>Description {{ game.description }}</div>
-
-    <div>
-      <button v-if="game.follower" v-on:click="unfollowGame()">Unfollow Game</button>
-      <button v-else v-on:click="followGame()">Follow Game</button>
-    </div>
-
-    <div id="Game User Info">
-      <div><h2>Game Followers</h2></div>
-      <div v-for="follower in game.users">
-        <router-link v-bind:to="`/users/${follower.id}`">
-          <img :src="follower.image" alt="Follower Image" Height="100" />
-          <br />
-          {{ follower.first_name }}
-        </router-link>
+    <div class="container pt90 pb60">
+      <div class="feature-col mb30">
+        <div class="row align-items-center">
+          <div class="col-md-5 ml-auto">
+            <img :src="game.image" alt="" class="img-fluid center-img" />
+          </div>
+          <div class="col-md-5 mr-auto pt30-md">
+            <h4 class="h2 mb0">{{ game.title }}</h4>
+            <span class="h6 text-muted mb20"></span>
+            <p>
+              {{ game.description }}
+            </p>
+            <div>
+              <button class="btn btn-primary mb5" align-self="center" v-if="game.follower" v-on:click="unfollowGame()">
+                Unfollow Game
+              </button>
+              <button class="btn btn-primary mb5 " align-self="center" v-else v-on:click="followGame()">
+                Follow Game
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
-    <div id="Game Group Info">
-      <div><h2>Group Followers</h2></div>
-      <div v-for="groupFollower in game.groups">
-        <router-link v-bind:to="`/groups/${groupFollower.id}`">
-          <img :src="groupFollower.image" alt="Group Follower Image" Height="100" />
-          <br />
-          {{ groupFollower.name }}
-        </router-link>
+    <div class="container pb60">
+      <hr class="pt60" />
+      <div class="center-title text-center mb50">
+        <h4>Following Groups</h4>
+      </div>
+      <div class="row">
+        <div v-for="group in game.groups" class="col-md-6 col-lg-3 mb50 text-center">
+          <router-link v-bind:to="`/groups/${group.id}`">
+            <img :src="group.image" alt="" class="img-fluid img-thumbnail mb20" width="150" />
+            <h4>{{ group.name }}</h4>
+          </router-link>
+        </div>
+        <!--/col-->
+      </div>
+    </div>
+
+    <div class="container pb60">
+      <hr class="pt60" />
+      <div class="center-title text-center mb50">
+        <h4 class="">Following Users</h4>
+      </div>
+      <div class="row">
+        <div v-for="user in game.users" class="col-md-6 col-lg-3 mb50 text-center">
+          <router-link v-bind:to="`/users/${user.id}`">
+            <img :src="user.image" alt="" class="img-fluid img-thumbnail mb20" width="150" />
+            <h4>{{ user.first_name }}</h4>
+          </router-link>
+        </div>
+        <!--/col-->
       </div>
     </div>
   </div>

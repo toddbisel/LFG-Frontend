@@ -1,23 +1,74 @@
 <template>
   <div class="group-index">
-    <div>
-      <router-link :to="'/groups/new'">
-        <button>Create New Group!</button>
-      </router-link>
-    </div>
-    <br />
+    <div class="container pb60">
+      <hr class="pt60" />
+      <div class="center-title text-center mb50">
+        <div>
+          <router-link :to="'/groups/new'">
+            <button class="btn btn-lg btn-rounded btn-primary mb5">Create New Group!</button>
+          </router-link>
+        </div>
+        <br />
+        <h4 class="">Group Index</h4>
 
-    <div>
+        <div id="name-search" class="form-group searchBar">
+          <input type="text" placeholder="Search Groups" class="form-control" v-model="nameFilter" />
+        </div>
+        <div>
+          <button v-on:click="setSortAttribute('name')" class="btn btn-outline-primary mb5">
+            Sort by Name
+            <span v-if="sortAttribute === 'name' && sortAscending === 1">
+              Ascending
+              <i class="fa fa-arrow-up mr-1"></i>
+            </span>
+            <span v-if="sortAttribute === 'name' && sortAscending === -1">
+              Descending
+              <i class="fa fa-arrow-down mr-1"></i>
+            </span>
+          </button>
+          <br />
+          <button v-on:click="setSortAttribute('distance')" class="btn btn-outline-primary mb5">
+            Sort by Distance
+            <i v-if="sortAttribute === 'distance' && sortAscending === 1">Farthest</i>
+            <i v-if="sortAttribute === 'distance' && sortAscending === -1">Closest</i>
+          </button>
+          <button v-on:click="setSortAttribute('count')" class="btn btn-outline-primary mb5">
+            Sort by Members
+            <i v-if="sortAttribute === 'count' && sortAscending === 1"><i class="fa fa-arrow-up mr-1"></i></i>
+            <i v-if="sortAttribute === 'count' && sortAscending === -1"><i class="fa fa-arrow-down mr-1"></i></i>
+          </button>
+        </div>
+      </div>
+      <div class="row">
+        <div
+          class="col-md-6 col-lg-3 mb50 text-center"
+          v-for="group in orderBy(filterBy(groups, nameFilter), sortAttribute, sortAscending)"
+          v-on:click="currentGroup = group"
+          v-bind:class="{ selected: group === currentGroup }"
+          v-bind:key="group.id"
+        >
+          <router-link v-bind:to="`/groups/${group.id}`">
+            <img :src="group.image" alt="" class="img-fluid mb20 shadow20 crop2" />
+            <h4>{{ group.name }}</h4>
+            <span class="font600 text-muted">
+              {{ group.count }} Members
+              <br />
+              {{ group.distance.toFixed(2) }} Miles Away
+            </span>
+          </router-link>
+        </div>
+      </div>
+    </div>
+
+    <!--     <div>
       <div id="name-search">
         <input type="text" placeholder="Search by name" class="form-control" v-model="nameFilter" list="names" />
       </div>
-      <!-- <div id="game-search">
-        <input type="text" placeholder="Search by game" class="form-control" v-model="gameFilter" list="games" />
-      </div> -->
+  
       <div>
         <button v-on:click="setSortAttribute('name')" class="btn btn-primary">
           Sort by name
-          <!-- <span v-if="sortAttribute === 'name' && sortAscending === 1">^</span> -->
+       
           <i v-if="sortAttribute === 'name' && sortAscending === 1">Up</i>
           <i v-if="sortAttribute === 'name' && sortAscending === -1">Down</i>
         </button>
@@ -33,9 +84,6 @@
       <option v-for="group in groups">{{ group.name }}</option>
     </datalist>
 
-    <!-- <datalist id="games">
-      <option v-for="game in games">{{ game.title }}</option>
-    </datalist> -->
 
     <h2>Group Index</h2>
     <div
@@ -49,11 +97,23 @@
       </router-link>
       <br />
       Group Name: {{ group.name }} Group Distance: {{ group.distance }}
-    </div>
+    </div> -->
   </div>
 </template>
 
-<style></style>
+<style>
+.crop2 {
+  height: 200px;
+  width: 200px;
+  max-width: 100%;
+  max-height: 100%;
+  overflow: hidden;
+}
+.crop2 img {
+  height: 200px;
+  width: 100%;
+}
+</style>
 
 <script>
 import axios from "axios";
